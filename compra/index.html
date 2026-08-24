@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compra - Catálogo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+Marker+Gothic&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+
+  <link rel="stylesheet" href="../css/general.css" />
+</head>
+
+<body>
+  <div class="pag-alq">
+    <!-- BANNER -->
+    <div class="banner">
+      <div>
+        <a href=".." class="ph-bold ph-arrow-bend-up-left pildora"></a>
+
+        <div class="function-bottom">
+          <button class="pildora" id="open-popup">
+            <p>购买详细</p>
+            <i class="ph-bold ph-calendar-heart"></i>
+          </button>
+          <button class="pildora" id="changeCurrencyBtn">
+            <p>¥ → €</p>
+            <i class="ph-bold ph-currency-circle-dollar"></i>
+          </button>
+        </div>
+
+      </div>
+      <div><i class="ph-bold ph-star-four"></i> 想买！≽^ ⦁ ⩊ ⦁ ^≼</div>
+    </div>
+    <div class="tab" id="tabContainer"></div>
+    <div class="page" id="pageContainer"></div>
+
+    <section id="fullscreenPopup" class="fullscreen-popup disable">
+      <div class="fullscreen-popup-overlay"></div>
+      <div class="fullscreen-popup-container">
+        <button class="pop-up-modal-close">×</button>
+        <div class="fullscreen-popup-content">
+          <div>
+            <h2>📱 购买流程</h2>
+            <div class="padding-20">
+              1️⃣ 私信我：发“想要哪台 + 是否需要配送”
+              <br>2️⃣ 确认设备详情（含价格、配件、成色、实拍图）20%订金即锁定
+              <br>3️⃣ 支付尾款（具体见下方「取货 & 售后政策」板块）
+              <br>4️⃣ 支付方式：
+              <div class="padding-40">
+                💶 欧元：现金 / Bizum
+                <br>🇨🇳 人民币：支付宝
+              </div>
+              <div style="background: var(--block-color); border-radius:8px; padding:10px 12px; margin-bottom: 5px;">🔖
+                还没➕客服的小宝记得加一下哦～</div>
+            </div>
+
+            <h2>📦 取货 & 售后政策</h2>
+            <div class="padding-20">📍 见面自取
+              <div class="padding-40">
+                ✅ 当面检查设备（外观、功能、配件），确认无剩余80%尾款，带走相机
+                <br>✅ 当面验机付款后不接受退换（二手设备当面看清，对双方都公平）
+                <br>💡 如果想深度试用再决定，可先租几天（7天内），租金全额抵扣购买价，私信详聊～
+              </div>
+            </div>
+
+            <div class="padding-20">📦 快递配送
+              <div class="padding-40">
+                ✅ 发货前拍照+视频确认设备状剩余80%尾款
+                <br>✅ 付款后打包发货，提供单号
+                <br>✅ 24小时内有问题可联系（超时不处理，必须提供完整的开箱视频！）
+              </div>
+            </div>
+
+
+            <!-- 🔥 新增：平台交易说明 -->
+            <div class="padding-20"
+              style="background:var(--block-color); border-radius:8px; padding:10px 12px; margin-bottom: 5px;">
+              平台交易（Vinted / Wallapop）：如需走平台担保交易，请私信客服细聊～
+              <br>⚠️ 注意：平台会收取佣金 + 运费，这部分费用需由买家承担，价格会比直接交易稍高，介意的话建议选面交/直款哦。
+            </div>
+
+            <h2>📍 服务范围</h2>
+            <div class="padding-20">
+              1️⃣ 自取：L‘Hospitalet de Llobregat（🚇Rambla Just Oliveras 地铁站附近）
+              <br>2️⃣ 配送：全巴塞罗那市区，+5€（满两件免配送费）
+            </div>
+
+            <h2>📦 配件清单</h2>
+            <div class="padding-20">
+              CCD/相机/vlog机：
+              <div class="padding-40">
+                ✅ 一块电池 / 充电器 / 一张内存卡 / 读卡器
+              </div>
+            </div>
+
+            <h2>🔋 CCD电池续航 & 充电器</h2>
+            <div class="padding-20">
+              1️⃣ 电池续航（保守估计）
+              <div class="padding-40">
+                满电约80-120张，持续开机约45分钟-1小时
+                <br>如果一直用闪光灯/回放，耗电更快
+                <br>省电技巧：不用时关机，减少回放，少用闪光灯
+              </div>
+            </div>
+
+            <div class="padding-20">
+              2️⃣ 充电器说明
+              <div class="padding-40">
+                附充电器（需插插座，不能USB充电，某些CCD除外）
+                <br>必须取出电池才能充电，充2-3小时满
+              </div>
+            </div>
+
+            <h2>❓ 常见问题</h2>
+            <div class="padding-20"
+              style="background: var(--block-color); border-radius:8px; padding:10px 12px; margin-bottom: 5px;">
+              Q：二手机器可以退换吗？
+              <br>A：面交当场验机，试用完毕确认无误付款后，不接受退换（二手设备当面看清，对双方都公平）。
+              <div class="padding-40">
+                💡 如果想深度试用再决先租几天（租期 ≤ 7天），租后满意租金可全额抵消购买价，相当于免费试用！
+                <br>📦 快递发货：发货前拍照+视频留底，收到货后24小时内联系，超时不处理（建议开箱录像）。
+              </div>
+            </div>
+
+            <div class="padding-20">
+              Q：配送费5€有点贵？
+              <br>A：推荐买两件免配送，或者自取0配送费～5€主要cover地铁票和时间成本。
+            </div>
+
+            <div class="padding-20">
+              Q：可以砍价吗？
+              <br>A：价格已经是很实惠的啦，多件打包可以小刀，具体微信私聊～
+            </div>
+
+            <div class="padding-20">
+              Q：Vinted/Wallapop平台交易怎么算？
+              <br>A：可以走，但平台会收佣金（约5-15%）+运费，这部分要买家承担，总价会比直款贵一些。想走平台的话私聊我，我帮你算好价格再上架～
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script>
+      const brandsData = {
+        canon: {
+          label: "佳能",
+          icon: "ph-sparkle",
+          categories: [
+            { name: "A系列", filter: "A" },
+            { name: "IXUS系列", filter: "IXUS" },
+            { name: "POWERSHOT系列", filter: "POWERSHOT" },
+          ],
+          models: [
+            {
+              name: "A470",
+              category: "A",
+              price: "¥20",
+              priceF: "¥580",
+              description: "虞书欣同款",
+              camera: "../img/a470/a470.png",
+              imageFolder: "img/a470",
+              imageCount: 2,
+              image: "..img/compare/a.JPEG"
+            },
+            {
+              name: "A650IS",
+              category: "A",
+              price: "¥20",
+              priceF: "¥780",
+              description: "翻转屏暖调",
+              camera: "../img/a650is/a650is.png",
+              imageFolder: "img/a650is",
+              imageCount: 3,
+            },
+            {
+              name: "IXUS 750",
+              category: "IXUS",
+              price: "¥20",
+              priceF: "¥900",
+              description: "复古暖黄",
+              camera: "../img/750/750.png",
+              imageFolder: "img/750",
+              imageCount: 1,
+            },
+            {
+              name: "IXUS 1000HS",
+              category: "IXUS",
+              price: "¥20",
+              priceF: "¥960",
+              description: "柔焦千禧风",
+              camera: "../img/1000hs/1000hs.png",
+              imageFolder: "img/1000hs",
+              imageCount: 16,
+            },
+            {
+              name: "POWERSHOT N1",
+              category: "POWERSHOT",
+              price: "¥20",
+              priceF: "¥2100",
+              description: "Jennie同款小奶砖",
+              camera: "../img/n1/n1.png",
+              imageFolder: "img/n1",
+              imageCount: 12,
+            },
+          ]
+        },
+        samsung: {
+          label: "三星",
+          icon: "ph-sparkle",
+          categories: [],
+          models: [
+            {
+              name: "Samsung  DV180F",
+              price: "¥20",
+              priceF: "¥850",
+              description: "冷白皮自拍CCD",
+              camera: "../img/dv180f/dv180f.png",
+              imageFolder: "img/dv180f",
+              imageCount: 6,
+            },
+          ],
+        },
+        olympus: {
+          label: "奥林巴斯",
+          icon: "ph-sparkle",
+          categories: [],
+          models: [
+            {
+              name: "Olympus MJU600",
+              price: "¥500",
+              description: "浓郁胶片感",
+              camera: "../img/u600/U600-2.png",
+              imageFolder: "img/u600",
+              imageCount: 11,
+            },
+            {
+              name: "Olympus C-300 ZOOM",
+              price: "¥15",
+              priceF: "¥280",
+              description: "轻透胶片味",
+              camera: "../img/c300/c300.png",
+              imageFolder: "img/c300",
+              imageCount: 1,
+            },
+          ],
+        },
+        nikon: {
+          label: "尼康",
+          icon: "ph-sparkle",
+          categories: [],
+          models: [
+            {
+              name: "Nikon S6600",
+              price: "¥20",
+              priceF: "¥1280",
+              description: "清冷自拍长焦",
+              camera: "../img/s6600/s6600.png",
+              imageFolder: "img/s6600",
+              imageCount: 1,
+            },
+          ],
+        },
+        polaroid: {
+          label: "拍立得",
+          icon: "ph-sparkle",
+          categories: [],
+          models: [
+            {
+              name: "SQ 10",
+              price: "¥1200",
+              description: "预览不废片​​",
+              camera: "../img/sq10.png",
+            },
+          ],
+        },
+        vlog: {
+          label: "vlog相机",
+          icon: "ph-sparkle",
+          categories: [],
+          models: [
+            {
+              name: "POWERSHOT N1",
+              category: "POWERSHOT",
+              price: "¥20",
+              priceF: "¥2100",
+              description: "Jennie同款小奶砖",
+              camera: "../img/n1/n1.png",
+              imageFolder: "img/n1",
+              imageCount: 12,
+            },
+            {
+              name: "Sony BLOGGIE",
+              price: "¥20",
+              priceF: "¥280",
+              description: "DV里最轻便​​",
+              camera: "../img/bloggie/bloggie.png",
+              imageFolder: "img/bloggie",
+              imageCount: 1,
+            },
+          ],
+        },
+      };
+    </script>
+    <script src="../js/script.js"></script>
+    <script src="../js/popup.js"></script>
+</body>
+
+</html>

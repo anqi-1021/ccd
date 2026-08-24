@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alquila - Catálogo</title>
+
+  <!-- Fuentes e iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+Marker+Gothic&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+
+  <link rel="stylesheet" href="../css/general.css" />
+</head>
+
+<body>
+  <div class="pag-alq">
+    <!-- BANNER -->
+    <div class="banner">
+      <div>
+        <a href=".." class="ph-bold ph-arrow-bend-up-left pildora"></a>
+
+        <div class="function-bottom">
+          <button class="pildora" id="open-popup">
+            <p>租凭详细</p>
+            <i class="ph-bold ph-calendar-heart"></i>
+          </button>
+          <button class="pildora" id="changeCurrencyBtn">
+            <p>¥ → €</p>
+            <i class="ph-bold ph-currency-circle-dollar"></i>
+          </button>
+        </div>
+         
+      </div>
+      <div><i class="ph-bold ph-star-four"></i> 想租！♡ ^›⩊‹^ ੭ ♡</div>
+    </div>
+    <div class="tab" id="tabContainer"></div>
+    <div class="page" id="pageContainer"></div>
+
+    <section id="fullscreenPopup" class="fullscreen-popup disable">
+      <div class="fullscreen-popup-overlay"></div>
+      <div class="fullscreen-popup-container">
+        <button class="pop-up-modal-close">×</button>
+        <div class="fullscreen-popup-content">
+          <h2>📱 预订流程</h2> 
+          <div class="padding-20">
+            1️⃣ 私信我：发“想租哪台 + 哪天用 + 是否需要配送”
+            <br>2️⃣ 确认租凭细节后（含租金、押金、取还时间），并支付定金后即预订成功
+            <br>3️⃣ 取机当天：
+            <div class="padding-40">
+              ✅ 一起检查设备（外观、功能、配件），拍照留底
+              <br>✅ 交实体学生证（若押证抵押一半押金）
+              <br>✅ 付租金+押金+配送费（如有）
+              <br>✅ 拿走相机
+            </div>
+            4️⃣ 支付方式: （欧）现金/bizum，（rmb）支付宝
+            
+          </div>
+
+           <div style="background: var(--block-color); border-radius:8px; padding:10px 12px; margin-bottom: 5px;">🔖 还没➕客服的小宝记得加一下哦～</div> 
+
+          <h2>🔐 订金 & 押金规则</h2> 
+          <div class="padding-20">
+            1️⃣ 订金 = 租金的一半
+            <div class="padding-40">
+              ❌ 跑单不退还
+              <br>📅 先付订金者可锁定相应时间段
+            </div>
+            
+              2️⃣ 押金总额 = 设备市场价
+              <div class="padding-40">
+                🎓 学生证可抵押总押金的一半！
+              </div>
+ 
+              3️⃣ 押金的作用：
+          </div> 
+            <div style="background: var(--block-color); border-radius:8px; padding:10px 12px; margin-bottom: 5px;">
+              ✅ 相机有磕碰：扣除5-20%的押金（⚠️ 就算用学生证抵押了50%的押金，也是根据押金总额扣除5-20%）
+              <br>✅ 相机损坏：根据维修费扣除押金，押金不够还需补上
+              <br>✅ 相机丢失：押金不退换（⚠️ 用学生证抵押50%押金的小宝们，需补上剩余的50%的押金）
+            </div>  
+
+          <h2>📅 租期怎么算？</h2>
+          <div class="padding-20">
+            1️⃣ 租1天 = 前一天下午取 + 当天还（不满24h也算1日！，配送时间也包括在内）
+            <br>2️⃣ 取机一般16:00后，归还20:00前（可商量）
+            <br>3️⃣ 配送服务：+5€送到你附近地铁站（租两台及以上：免配送费！）
+          </div>
+
+          <h2>📍 服务范围</h2>
+          <div class="padding-20">
+            1️⃣ 自取：L’Hospitalet de Llobregat（🚇Rambla Just Oliveras 地铁站附近）
+            <br>2️⃣ 配送：全巴塞罗那市区，+5€
+          </div>
+ 
+          <h2>🔄 归还流程</h2>
+          <div class="padding-20">
+            1️⃣ 同一地点（或商量）
+            <br>2️⃣ 对照取机照片检查：外观无新伤，功能正常，配件齐全：
+            <div class="padding-40">
+              ✅ 没问题 → 当场退还全部现金押金 + 归还学生证
+            <br>❌ 有损坏 → 按维修店报价赔偿（从押金扣，多退少补）
+            </div>
+          </div>
+        
+          <h2>🎞️ 配件</h2>
+          <div class="padding-20">
+            1️⃣ CCD/相机/vlog机：
+            <div class="padding-40">
+              ✅ 一块电池 / 充电器 / 一张内存卡 / 读卡器
+            </div>
+          </div>
+
+          <div class="padding-20">
+            2️⃣ 拍立得相纸怎么算？
+            <div class="padding-40">
+              ✅ 自带相纸：自己拆装（注意：一旦装入相机必须拍完，中途不能开盖！）
+              <br>✅ 按张购买（我帮你装好）：
+              <div class="padding-40"> 
+                mini相纸：1.5€/张
+                <br>square相纸：2€/张
+                <br>wide相纸：2.5€/张
+              </div>
+            </div>
+          </div>
+
+          <h2>🔋 CCD电池续航 & 充电器</h2>
+          <div class="padding-20">
+            1️⃣ 电池续航（保守估计）
+            <div class="padding-40">
+              满电约80-120张，持续开机约45分钟-1小时
+              <br>如果一直用闪光灯/回放，耗电更快
+              <br>省电技巧：不用时关机，减少回放，少用闪光灯
+            </div>
+          </div>
+
+          <div class="padding-20">
+            2️⃣ 充电器说明（重要！）
+            <div class="padding-40">
+              附充电器（需插插座，不能USB充电，某些CCD除外）
+              <br>必须取出电池才能充电，充2-3小时满
+              <br>如需备用电池，可提前说，+1€租一块（限部分机型）
+            </div>
+          </div>
+
+          <h2>❓ 常见问题</h2>
+            <div class="padding-20"> 
+              Q：微信聊天算协议吗？
+              <br>A：算！只要聊天里写清租期、租金、押金、损坏规则，你回“确认”就有效，加上拍照留底，完全OK。
+            </div>
+            <div class="padding-20"> 
+              Q：配送费5€有点贵？
+              <br>A：所以推荐租两台免配送，或者自取0配送费～5€主要cover地铁票和时间成本。
+            </div>
+            <div class="padding-20" style="background: var(--block-color); border-radius:8px; padding:10px 12px; margin-top: 5px;"> 
+              Q：学生证押给你安全吗？
+              <br>A：我只保管，归还相机立刻还你，绝不会弄丢。
+            </div>
+            <div class="padding-20" style="background: var(--block-color); border-radius:8px; padding:10px 12px; margin-top: 5px;"> 
+               Q：可以租好几天吗？
+              <br> A：可以！租3天以上可商量小折扣，具体微信私聊。
+            </div> 
+             
+          </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const brandsData = {
+      canon: {
+        label: "佳能",
+        icon: "ph-sparkle",
+        categories: [
+          { name: "A系列", filter: "A" },
+          { name: "IXUS系列", filter: "IXUS" },
+          { name: "G系列", filter: "G" },
+          { name: "POWERSHOT系列", filter: "POWERSHOT" },
+        ],
+        models: [
+          {
+            name: "A460",
+            category: "A",
+            price: "¥20",
+            priceF: "¥380",
+            description: "复古回忆感",
+            camera: "../img/a460/a460.png",
+            imageFolder: "img/a460",
+            imageCount: 1,
+          },
+          {
+            name: "A470",
+            category: "A",
+            price: "¥20",
+            priceF: "¥580",
+            description: "虞书欣同款",
+            camera: "../img/a470/a470.png",
+            imageFolder: "img/a470",
+            imageCount: 2,
+            image: "..img/compare/a.JPEG"
+          },
+          {
+            name: "A650IS",
+            category: "A",
+            price: "¥20",
+            priceF: "¥780",
+            description: "翻转屏暖调",
+            camera: "../img/a650is/a650is.png",
+            imageFolder: "img/a650is",
+            imageCount: 3,
+          },
+          {
+            name: "POWERSHOT E1",
+            category: "POWERSHOT",
+            price: "¥20",
+            priceF: "¥500",
+            description: "奶白复古",
+            camera: "../img/e1/e1.png",
+            imageFolder: "img/e1",
+            imageCount: 1,
+          },
+          {
+            name: "IXUS 110IS",
+            category: "IXUS",
+            price: "¥30",
+            priceF: "¥1100",
+            description: "冷白皮神机",
+            camera: "../img/110is/110is.png",
+            imageFolder: "img/110is",
+            imageCount: 28,
+          },
+          {
+            name: "IXUS 120IS",
+            category: "IXUS",
+            price: "¥30",
+            priceF: "¥1100",
+            description: "清透奶油肌",
+            camera: "../img/120is/120is.png",
+            imageFolder: "img/120is",
+            imageCount: 2,
+          },
+          {
+            name: "IXUS 130",
+            category: "IXUS",
+            price: "¥30",
+            priceF: "¥2000",
+            description: "IXUS机皇",
+            camera: "../img/130/130.png",
+            imageFolder: "img/130",
+            imageCount: 1,
+          },
+          {
+            name: "IXUS 310HS",
+            category: "IXUS",
+            price: "¥20",
+            priceF: "¥1500",
+            description: "胶片感",
+            camera: "../img/310hs/310hs.png",
+            imageFolder: "img/310hs",
+            imageCount: 2,
+          },
+          {
+            name: "IXUS 750",
+            category: "IXUS",
+            price: "¥20",
+            priceF: "¥900",
+            description: "复古暖黄",
+            camera: "../img/750/750.png",
+            imageFolder: "img/750",
+            imageCount: 1,
+          },
+          {
+            name: "IXUS 1000HS",
+            category: "IXUS",
+            price: "¥20",
+            priceF: "¥960",
+            description: "柔焦千禧风",
+            camera: "../img/1000hs/1000hs.png",
+            imageFolder: "img/1000hs",
+            imageCount: 16,
+          },
+          {
+            name: "G12",
+            category: "G",
+            price: "¥50",
+            priceF: "¥4000",
+            description: "色彩浓郁机皇",
+            camera: "../img/g12/g12.png",
+            imageFolder: "img/g12",
+            imageCount: 8,
+          },
+          {
+            name: "G7X2",
+            category: "G",
+            price: "¥50",
+            priceF: "¥5000",
+            description: "博主必备神机",
+            camera: "../img/g7x2/g7x2.png",
+            imageFolder: "img/g7x2",
+            imageCount: 21,
+          },
+          {
+            name: "POWERSHOT N1",
+            category: "POWERSHOT",
+            price: "¥20",
+            priceF: "¥2100",
+            description: "Jennie同款小奶砖",
+            camera: "../img/n1/n1.png",
+            imageFolder: "img/n1",
+            imageCount: 12,
+          },
+        ],
+      },
+      samsung: {
+        label: "三星",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "Samsung  DV180F",
+            price: "¥20",
+            priceF: "¥850",
+            description: "冷白皮自拍CCD",
+            camera: "../img/dv180f/dv180f.png",
+            imageFolder: "img/dv180f",
+            imageCount: 6,
+          },
+        ],
+      },
+      fujifilm: {
+        label: "富士",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "Fujifilm Z100FD",
+            price: "¥20",
+            priceF: "¥680",
+            description: "日系胶片感",
+            camera: "../img/z100fd/z100fd.png",
+            imageFolder: "img/z100fd",
+            imageCount: 1,
+          },
+        ],
+      },
+      casio: {
+        label: "卡西欧",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "Casio EX-ZR2300",
+            price: "¥20",
+            priceF: "¥680",
+            description: "韩系美颜CCD",
+            camera: "../img/zr2300/zr2300.png",
+            imageFolder: "img/zr2300",
+            imageCount: 2,
+          },
+        ],
+      },
+      olympus: {
+        label: "奥林巴斯",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "Olympus MJU300",
+            price: "¥20",
+            priceF: "¥750",
+            description: "绿调氛围",
+            camera: "../img/u300/U300.png",
+            imageFolder: "img/u300",
+            imageCount: 6,
+          },
+          {
+            name: "Olympus MJU600",
+            price: "¥20",
+            priceF: "¥680",
+            description: "浓郁胶片感",
+            camera: "../img/u600/U600.png",
+            imageFolder: "img/u600",
+            imageCount: 11,
+          },
+          {
+            name: "Olympus C-300 ZOOM",
+            price: "¥15",
+            priceF: "¥280",
+            description: "轻透胶片味",
+            camera: "../img/c300/c300.png",
+            imageFolder: "img/c300",
+            imageCount: 1,
+          },
+        ],
+      },
+      ricoh: {
+        label: "理光",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "Ricoh GR II",
+            price: "¥50",
+            priceF: "¥4500",
+            description: "街拍灵魂机",
+            camera: "../img/gr2/gr2.png",
+            imageFolder: "img/gr2",
+            imageCount: 12,
+          },
+        ],
+      },
+      iphone: {
+        label: "苹果",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "IPHONE 5S",
+            category: "other",
+            price: "¥20",
+            priceF: "¥280",
+            description: "手机里的胶片",
+            camera: "../img/5s/5s.png",
+            imageFolder: "img/5s",
+            imageCount: 3,
+          },
+        ],
+      },
+      nikon: {
+        label: "尼康",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "Nikon S6600",
+            price: "¥20",
+            priceF: "¥1280",
+            description: "清冷自拍长焦",
+            camera: "../img/s6600/s6600.png",
+            imageFolder: "img/s6600",
+            imageCount: 1,
+          },
+        ],
+      },
+      polaroid: {
+        label: "拍立得",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "MINI 90",
+            price: "¥35",
+            priceF: "¥1500",
+            description: "公认拍立得机皇​​",
+            camera: "../img/mini90.png",
+             
+          },
+          {
+            name: "SQ 6",
+            price: "¥35",
+            priceF: "¥1000",
+            description: "方形多模玩家​​",
+            camera: "../img/sq6.png",
+             
+          },
+          {
+            name: "SQ 10",
+            price: "¥35",
+            priceF: "¥1200",
+            description: "预览不废片​​",
+            camera: "../img/sq10.png",
+             
+          },
+          {
+            name: "WIDE 300",
+            price: "¥35",
+            priceF: "¥1800",
+            description: "古早感宽幅王​​",
+            camera: "../img/wide300.png",
+            
+          },
+          {
+            name: "MINI LINK 2",
+            price: "¥90",
+            priceF: "¥1100",
+            description: "手机照秒出片​​",
+            camera: "../img/link2.png",
+             
+          },
+        ],
+      },
+      vlog: {
+        label: "vlog相机",
+        icon: "ph-sparkle",
+        categories: [],
+        models: [
+          {
+            name: "Canon MINI LEGRIA",
+            price: "¥40",
+            priceF: "¥3000",
+            description: "韩综同款Vlog",
+            camera: "../img/legria/legria.png",
+            imageFolder: "img/legria",
+            imageCount: 1,
+          },
+          {
+            name: "POWERSHOT N1",
+            price: "¥20",
+            priceF: "¥2100",
+            description: "Jennie同款小奶砖",
+            camera: "../img/n1/n1.png",
+            imageFolder: "img/n1",
+            imageCount: 12,
+          },
+          {
+            name: "Insta360 GO ULTRA",
+            price: "¥40",
+            priceF: "¥2500",
+            description: "口袋萌宠记录",
+            camera: "../img/go-ultra/go-ultra.png",
+            imageFolder: "img/go-ultra",
+            imageCount: 1,
+          },
+          {
+            name: "Sony BLOGGIE",
+            price: "¥20",
+            priceF: "¥280",
+            description: "DV里最轻便​​",
+            camera: "../img/bloggie/bloggie.png",
+            imageFolder: "img/bloggie",
+            imageCount: 1,
+          },
+        ],
+      },
+    };
+  </script>
+  <script src="../js/script.js"></script>
+  <script src="../js/popup.js"></script>
+</body>
+
+</html>

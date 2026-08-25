@@ -1,5 +1,5 @@
 // =============================================================
-// 1. FUNCIONES DE CONVERSIÓN DE MONEDA
+// 1. FUNCIONES DE CONVERSION DE MONEDA
 // =============================================================
 
 function toggleAllPrices() {
@@ -35,7 +35,6 @@ function toggleAllPrices() {
     }
   });
 
-  // Actualizar texto del botón global
   if (btn) {
     const pTag = btn.querySelector('p');
     if (pTag) pTag.textContent = anyEuro ? '€ → ¥' : '¥ → €';
@@ -43,7 +42,6 @@ function toggleAllPrices() {
 }
 
 function createPriceElement(yuanText, numericValue, type) {
-  // type: 'rent', 'deposit', 'sale'
   if (!yuanText || isNaN(numericValue)) return null;
 
   const div = document.createElement('div');
@@ -53,8 +51,6 @@ function createPriceElement(yuanText, numericValue, type) {
   div.dataset.yuanText = yuanText;
   div.textContent = yuanText;
   div.dataset.mode = 'yuan';
-
-  // Ya NO se añade evento click individual
   return div;
 }
 
@@ -150,26 +146,21 @@ function renderBrand(brandKey) {
     card.addEventListener("click", function () {
   let images = [];
 
-  // 1. Imagen fija: 1.JPEG (si existe la carpeta)
   if (model.imageFolder && model.imageCount && model.imageCount >= 1) {
-    images.push(`../${model.imageFolder}/1.JPEG`);
+    images.push(`../${model.imageFolder}/1.jpeg`);
   }
 
-  // 2. Aleatorias desde 2 hasta imageCount (máximo 10)
   if (model.imageFolder && model.imageCount && model.imageCount > 1) {
     const total = model.imageCount;
-    // Números disponibles: 2, 3, ..., total
     const available = Array.from({ length: total - 1 }, (_, i) => i + 2);
-    // Barajar
     for (let i = available.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [available[i], available[j]] = [available[j], available[i]];
     }
-    // Tomar hasta 10
     const pickCount = Math.min(available.length, 9);
     const selected = available.slice(0, pickCount);
     selected.forEach(num => {
-      images.push(`../${model.imageFolder}/${num}.JPEG`);
+      images.push(`../${model.imageFolder}/${num}.jpeg`);
     });
   }
 
@@ -310,7 +301,6 @@ document.addEventListener("keydown", function (e) {
 // 5. INICIALIZACIÓN (SE EJECUTA DIRECTAMENTE)
 // =============================================================
 
-// Crear botones del menú lateral
 const tabContainer = document.getElementById("tabContainer");
 const pageContainer = document.getElementById("pageContainer");
 
@@ -337,7 +327,6 @@ brandKeys.forEach((key) => {
   pageContainerDiv.appendChild(pagDiv);
 });
 
-// Asignar evento al botón de cambio de moneda
 const currencyBtn = document.getElementById("changeCurrencyBtn");
 if (currencyBtn) {
   currencyBtn.addEventListener("click", toggleAllPrices);
@@ -347,7 +336,6 @@ if (currencyBtn) {
 const firstBtn = document.querySelector(".tab button");
 if (firstBtn) firstBtn.click();
 
-// Exponer funciones globalmente (por si se necesitan)
 window.openPage = openPage;
 window.openModal = openModal;
 window.toggleAllPrices = toggleAllPrices;

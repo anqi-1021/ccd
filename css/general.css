@@ -1,5 +1,5 @@
 :root {
-  --background-color: #F9e7e6;
+  --background-color: #f9e7e6;
   --block-color: #fed0d6;
   --title-color: #f8819b;
   --text-color: #3e3630;
@@ -14,7 +14,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: var(--text-color)
+  color: var(--text-color);
 }
 
 h1 {
@@ -57,32 +57,19 @@ button {
   cursor: pointer;
 }
 
-button.pildora, .pildora {
+button.pildora,
+.pildora {
   box-shadow: rgba(0, 0, 0, 0.05) 1.95px 1.95px;
   padding: 5px 10px;
   border-radius: 10px;
   background-color: var(--block-color);
-
 }
 
-button.pildora:hover, .pildora
-button.pildora.active {
+button.pildora:hover,
+.pildora button.pildora.active {
   box-shadow: rgba(0, 0, 0, 0.05) 1.95px 1.95px;
   background-color: var(--overlay-background-color);
   color: var(--background-color);
-}
-
-.contact {
-  font-size: 22px;
-  color: #f8819b;
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.contact p {
-  font-size: 16px;
 }
 
 .pag-intro {
@@ -143,8 +130,10 @@ button.pildora.active {
 .heart {
   width: 40px;
   height: 40px;
-  clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
-	position: fixed;
+  clip-path: path(
+    "M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+  );
+  position: fixed;
   background-color: var(--title-color);
   top: 7vh;
   left: 7vw;
@@ -185,9 +174,7 @@ button.pildora.active {
   top: 29vh;
   left: 25vw;
   transform: rotate(-6deg);
-   
 }
-
 
 .cat-head {
   background-color: var(--block-color);
@@ -211,7 +198,8 @@ button.pildora.active {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.cat-head::before, .cat-head::after {
+.cat-head::before,
+.cat-head::after {
   content: "";
   border-right: 35px solid transparent;
   border-left: 35px solid transparent;
@@ -231,7 +219,8 @@ button.pildora.active {
   transform: translateY(-60%) rotate(5deg);
 }
 
-.cat-head span::before, .cat-head span::after {
+.cat-head span::before,
+.cat-head span::after {
   content: "";
   border-right: 12px solid transparent;
   border-left: 12px solid transparent;
@@ -269,7 +258,9 @@ button.pildora.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: visibility 0.3s ease, opacity 0.3s ease;
+  transition:
+    visibility 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .fullscreen-popup.disable {
@@ -311,8 +302,7 @@ button.pildora.active {
 }
 
 .fullscreen-popup-content,
-.fullscreen-popup-content-intro
-{
+.fullscreen-popup-content-intro {
   width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -324,10 +314,19 @@ button.pildora.active {
 
 .fullscreen-popup-content-intro {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 15px;
   align-items: center;
   font-size: 18px;
   line-height: 25px;
+}
+
+.announcement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .fullscreen-popup-content-intro h1 {
@@ -357,7 +356,6 @@ button.pildora.active {
   padding-left: 20px;
   padding-bottom: 5px;
 }
- 
 
 .banner {
   position: fixed;
@@ -455,7 +453,7 @@ button.pildora.active {
   background-color: var(--background-color);
 }
 
- /* ===== CONTENIDO PRINCIPAL (page) ===== */
+/* ===== CONTENIDO PRINCIPAL (page) ===== */
 .page {
   padding-top: var(--banner-height);
   padding-left: var(--tab-width);
@@ -659,7 +657,6 @@ button.pildora.active {
   border-radius: 20px;
 }
 
-
 /* Texto más pequeño */
 @media screen and (max-width: 420px) {
   :root {
@@ -792,7 +789,9 @@ button.pildora.active {
     justify-content: center;
   }
 
-  .banner, .tab, .subclass {
+  .banner,
+  .tab,
+  .subclass {
     left: 50%;
   }
 

@@ -3,54 +3,54 @@
 // =============================================================
 
 function toggleAllPrices() {
-  const prices = document.querySelectorAll('.model-price');
-  const btn = document.getElementById('changeCurrencyBtn');
+  const prices = document.querySelectorAll(".model-price");
+  const btn = document.getElementById("changeCurrencyBtn");
   let anyEuro = false;
 
-  prices.forEach(element => {
+  prices.forEach((element) => {
     const yuan = parseFloat(element.dataset.yuanValue);
     if (isNaN(yuan)) return;
     const type = element.dataset.type; // 'rent', 'deposit', 'sale'
 
-    if (element.dataset.mode === 'euro') {
+    if (element.dataset.mode === "euro") {
       // Volver a yuanes
       element.textContent = element.dataset.yuanText;
-      element.dataset.mode = 'yuan';
-      element.style.color = '';
+      element.dataset.mode = "yuan";
+      element.style.color = "";
     } else {
       // Convertir a euros
       const euro = yuan / 7.8;
-      let euroText = '';
-      if (type === 'rent') {
+      let euroText = "";
+      if (type === "rent") {
         euroText = `租金 ${euro.toFixed(1)}€/天`;
-      } else if (type === 'deposit') {
+      } else if (type === "deposit") {
         euroText = `押金 ${euro.toFixed(1)}€`;
-      } else if (type === 'sale') {
+      } else if (type === "sale") {
         euroText = `价格 ${euro.toFixed(1)}€`;
       }
       element.textContent = euroText;
-      element.dataset.mode = 'euro';
-      element.style.color = '#e67e22';
+      element.dataset.mode = "euro";
+      element.style.color = "#e67e22";
       anyEuro = true;
     }
   });
 
   if (btn) {
-    const pTag = btn.querySelector('p');
-    if (pTag) pTag.textContent = anyEuro ? '€ → ¥' : '¥ → €';
+    const pTag = btn.querySelector("p");
+    if (pTag) pTag.textContent = anyEuro ? "€ → ¥" : "¥ → €";
   }
 }
 
 function createPriceElement(yuanText, numericValue, type) {
   if (!yuanText || isNaN(numericValue)) return null;
 
-  const div = document.createElement('div');
-  div.className = 'model-price';
+  const div = document.createElement("div");
+  div.className = "model-price";
   div.dataset.yuanValue = numericValue;
   div.dataset.type = type;
   div.dataset.yuanText = yuanText;
   div.textContent = yuanText;
-  div.dataset.mode = 'yuan';
+  div.dataset.mode = "yuan";
   return div;
 }
 
@@ -118,12 +118,18 @@ function renderBrand(brandKey) {
     if (model.priceF) {
       // Caso con alquiler y depósito
       const rentText = `租金 ${model.price}/天`;
-      const rentValue = parseFloat(String(model.price).replace(/[^0-9.]/g, ''));
+      const rentValue = parseFloat(String(model.price).replace(/[^0-9.]/g, ""));
       const depositText = `押金 ${model.priceF}`;
-      const depositValue = parseFloat(String(model.priceF).replace(/[^0-9.]/g, ''));
+      const depositValue = parseFloat(
+        String(model.priceF).replace(/[^0-9.]/g, ""),
+      );
 
-      const rentElement = createPriceElement(rentText, rentValue, 'rent');
-      const depositElement = createPriceElement(depositText, depositValue, 'deposit');
+      const rentElement = createPriceElement(rentText, rentValue, "rent");
+      const depositElement = createPriceElement(
+        depositText,
+        depositValue,
+        "deposit",
+      );
 
       card_text.appendChild(nameDiv);
       card_text.appendChild(descDiv);
@@ -133,8 +139,8 @@ function renderBrand(brandKey) {
       if (depositElement) card_text.appendChild(depositElement);
     } else {
       const saleText = `价格 ${model.price}`;
-      const saleValue = parseFloat(String(model.price).replace(/[^0-9.]/g, ''));
-      const saleElement = createPriceElement(saleText, saleValue, 'sale');
+      const saleValue = parseFloat(String(model.price).replace(/[^0-9.]/g, ""));
+      const saleElement = createPriceElement(saleText, saleValue, "sale");
       card_text.appendChild(nameDiv);
       card_text.appendChild(descDiv);
       if (saleElement) card_text.appendChild(saleElement);
@@ -144,32 +150,32 @@ function renderBrand(brandKey) {
     card.appendChild(card_img);
 
     card.addEventListener("click", function () {
-  let images = [];
+      let images = [];
 
-  if (model.imageFolder && model.imageCount && model.imageCount >= 1) {
-    images.push(`../${model.imageFolder}/1.jpeg`);
-  }
+      if (model.imageFolder && model.imageCount && model.imageCount >= 1) {
+        images.push(`../${model.imageFolder}/1.jpeg`);
+      }
 
-  if (model.imageFolder && model.imageCount && model.imageCount > 1) {
-    const total = model.imageCount;
-    const available = Array.from({ length: total - 1 }, (_, i) => i + 2);
-    for (let i = available.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [available[i], available[j]] = [available[j], available[i]];
-    }
-    const pickCount = Math.min(available.length, 9);
-    const selected = available.slice(0, pickCount);
-    selected.forEach(num => {
-      images.push(`../${model.imageFolder}/${num}.jpeg`);
+      if (model.imageFolder && model.imageCount && model.imageCount > 1) {
+        const total = model.imageCount;
+        const available = Array.from({ length: total - 1 }, (_, i) => i + 2);
+        for (let i = available.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [available[i], available[j]] = [available[j], available[i]];
+        }
+        const pickCount = Math.min(available.length, 9);
+        const selected = available.slice(0, pickCount);
+        selected.forEach((num) => {
+          images.push(`../${model.imageFolder}/${num}.jpeg`);
+        });
+      }
+
+      if (images.length > 0) {
+        openModal(images, 0);
+      } else {
+        console.warn(`El modelo "${model.name}" no tiene imágenes.`);
+      }
     });
-  }
-
-  if (images.length > 0) {
-    openModal(images, 0);
-  } else {
-    console.warn(`El modelo "${model.name}" no tiene imágenes.`);
-  }
-});
 
     modelsContainer.appendChild(card);
   });
@@ -183,7 +189,8 @@ function renderBrand(brandKey) {
     function filterModels(category) {
       allModels.forEach((card) => {
         const cardCat = card.dataset.category;
-        card.style.display = (category === "all" || cardCat === category) ? "" : "none";
+        card.style.display =
+          category === "all" || cardCat === category ? "" : "none";
       });
     }
 
@@ -208,7 +215,9 @@ function openPage(event) {
   const button = event.currentTarget;
   const pageName = button.dataset.page;
 
-  document.querySelectorAll(".tab button").forEach((btn) => btn.classList.remove("active"));
+  document
+    .querySelectorAll(".tab button")
+    .forEach((btn) => btn.classList.remove("active"));
   button.classList.add("active");
 
   document.querySelectorAll(".pag").forEach((p) => (p.style.display = "none"));
@@ -272,7 +281,8 @@ function nextImage() {
 
 function prevImage() {
   if (currentImages.length === 0) return;
-  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  currentIndex =
+    (currentIndex - 1 + currentImages.length) % currentImages.length;
   showImage();
 }
 
@@ -306,7 +316,7 @@ const pageContainer = document.getElementById("pageContainer");
 
 const tabContainerDiv = document.createElement("div");
 const pageContainerDiv = document.createElement("div");
-tabContainer.appendChild(tabContainerDiv)
+tabContainer.appendChild(tabContainerDiv);
 pageContainer.appendChild(pageContainerDiv);
 
 const brandKeys = Object.keys(brandsData);
@@ -315,7 +325,9 @@ brandKeys.forEach((key) => {
   const btn = document.createElement("button");
   btn.dataset.page = key;
   btn.innerHTML = `${brand.label} <i class="ph-bold ${brand.icon || "ph-sparkle"}"></i>`;
-  btn.onclick = function (e) { openPage(e); };
+  btn.onclick = function (e) {
+    openPage(e);
+  };
   tabContainerDiv.appendChild(btn);
 });
 

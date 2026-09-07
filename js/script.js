@@ -19,14 +19,14 @@ function toggleAllPrices() {
       element.style.color = "";
     } else {
       // Convertir a euros
-      const euro = yuan / 7.8;
+      const euro = Math.ceil(yuan / 7.8);
       let euroText = "";
       if (type === "rent") {
-        euroText = `租金 ${euro.toFixed(1)}€/天`;
+        euroText = `租金 ${euro.toFixed(0)}€/天`;
       } else if (type === "deposit") {
-        euroText = `押金 ${euro.toFixed(1)}€`;
+        euroText = `押金 ${euro.toFixed(0)}€`;
       } else if (type === "sale") {
-        euroText = `价格 ${euro.toFixed(1)}€`;
+        euroText = `价格 ${euro.toFixed(0)}€`;
       }
       element.textContent = euroText;
       element.dataset.mode = "euro";
